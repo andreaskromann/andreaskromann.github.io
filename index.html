@@ -1,47 +1,734 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Andreas Kromann - Chief Technology Architect at Bizzkit. Over 18 years of professional software development experience.">
+    <meta name="keywords" content="Andreas Kromann, Software Architect, Technology Architect, Bizzkit, ASP.NET, E-commerce">
+    <title>Andreas Kromann | Software Architect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f3460;
+            --highlight: #e94560;
+            --text: #333333;
+            --text-light: #666666;
+            --bg: #ffffff;
+            --bg-alt: #f8f9fa;
+            --border: #e0e0e0;
+        }
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Andreas Kromann : ">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+        html {
+            scroll-behavior: smooth;
+        }
 
-    <title>Andreas Kromann</title>
-  </head>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
 
-  <body>
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
+        nav .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-          <h1 id="project_title">Andreas Kromann</h1>
-          <h2 id="project_tagline">Chief Technology Architect at Bizzkit</h2>
+        nav .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
 
-        </header>
-    </div>
+        nav .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3><a id="social-profiles" class="anchor" href="#social-profiles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Social profiles</h3>
-        <p>
-          <a href="https://dk.linkedin.com/pub/andreas-kromann/11/442/875">LinkedIn</a><br>
-          <a href="https://www.facebook.com/andreas.kromann">Facebook</a>
-        </p>
-      </section>
-    </div>
+        nav .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p></p>
-      </footer>
-    </div>
+        nav .nav-links a:hover {
+            color: var(--highlight);
+        }
 
-    
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            color: white;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
 
-  </body>
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .company {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--highlight);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .location {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .hero .cta-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero .cta-links a {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .hero .cta-links .primary-btn {
+            background: var(--highlight);
+            color: white;
+            border: 2px solid transparent;
+        }
+
+        .hero .cta-links .primary-btn:hover {
+            background: #d63851;
+            transform: translateY(-2px);
+        }
+
+        .hero .cta-links .secondary-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero .cta-links .secondary-btn:hover {
+            border-color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        /* About */
+        #about {
+            background: var(--bg-alt);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        .about-stats {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-link {
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .stat-link:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--highlight);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+
+        /* Experience */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--highlight);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--highlight);
+        }
+
+        .timeline-item.current::before {
+            background: var(--highlight);
+            box-shadow: 0 0 0 2px var(--highlight), 0 0 0 6px rgba(233, 69, 96, 0.2);
+        }
+
+        .timeline-date {
+            font-size: 0.875rem;
+            color: var(--highlight);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-company {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            color: var(--text-light);
+        }
+
+        .timeline-description ul {
+            padding-left: 1.25rem;
+            margin-top: 0.5rem;
+        }
+
+        .timeline-description li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills */
+        #skills {
+            background: var(--bg-alt);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.25rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--bg-alt);
+            color: var(--text);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Contact */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .contact-links a:hover {
+            background: var(--highlight);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.25rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .cta-links {
+                flex-direction: column;
+            }
+
+            .hero .cta-links a {
+                width: 100%;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Andreas Kromann</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="images/profile.jpg" alt="Andreas Kromann" class="profile-pic">
+            <h1>Andreas Kromann</h1>
+            <p class="subtitle">Chief Technology Architect</p>
+            <p class="company">Bizzkit</p>
+            <p class="location">Odense, Denmark</p>
+            <div class="cta-links">
+                <a href="#contact" class="primary-btn">Get in Touch</a>
+                <a href="#experience" class="secondary-btn">View Experience</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Building scalable solutions through technical leadership</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        As a certified Systems Architect with over 18 years of professional software development experience, 
+                        I bring a wealth of knowledge to every project. My approach combines analytical thinking with a keen 
+                        understanding of stakeholder concerns, ensuring effective solutions.
+                    </p>
+                    <p>
+                        I have extensive experience with estimating large projects and breaking them down to workable tasks. 
+                        I conduct code reviews, provide sparring with developers, and actively participate in job interviews 
+                        and the recruitment process for new developers.
+                    </p>
+                    <p>
+                        I thrive on new opportunities and continuous learning. Whether tackling complex technical problems or 
+                        exploring emerging technologies, I'm always eager to grow and deliver innovative solutions.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">18+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">MSc</div>
+                        <div class="stat-label">Computer Science & Mathematics</div>
+                    </div>
+                    <a href="https://app.diplomasafe.com/en-US/diploma/d6e636fecb244a2c997d192902d6c04c75502ebcb" target="_blank" rel="noopener noreferrer" class="stat-item stat-link">
+                        <div class="stat-number" style="font-size: 1.5rem;">Certified</div>
+                        <div class="stat-label">System Architecture Practitioner</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <p class="section-subtitle">A journey of continuous growth and technical excellence</p>
+            
+            <div class="timeline">
+                <!-- Bizzkit -->
+                <div class="timeline-item current">
+                    <div class="timeline-date">Jun 2024 - Present</div>
+                    <h3 class="timeline-title">Chief Technology Architect</h3>
+                    <p class="timeline-company">Bizzkit (Hesehus A/S)</p>
+                    <div class="timeline-description">
+                        <ul>
+                            <li>Responsible for shaping technological roadmaps and identifying new trends and technologies</li>
+                            <li>Steers the Bizzkit platform in the right technological direction</li>
+                            <li>Team leader for the Bizzkit architect team and a developer team</li>
+                            <li>Advises C-level management on strategic decisions</li>
+                            <li>Works with the HR department on recruitment and interviews</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Hesehus Lead Architect -->
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 2020 - Jun 2024</div>
+                    <h3 class="timeline-title">Lead Architect</h3>
+                    <p class="timeline-company">Hesehus A/S</p>
+                    <div class="timeline-description">
+                        <ul>
+                            <li>Advised CTO on architecture standards and strategic decisions</li>
+                            <li>Maintained the template for building future solutions</li>
+                            <li>Provided guidance to Software Architects ensuring alignment with overall strategy</li>
+                            <li>Worked with HR department on recruitment and interviews</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Hesehus Software Architect -->
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2018 - Nov 2020</div>
+                    <h3 class="timeline-title">Software Architect</h3>
+                    <p class="timeline-company">Hesehus A/S</p>
+                    <div class="timeline-description">
+                        <ul>
+                            <li>Analyzed, estimated, and broke down large projects</li>
+                            <li>Conducted job interviews and educated developers in new technologies</li>
+                            <li>Engaged with customers to understand needs and design solutions</li>
+                            <li>Performed code reviews and provided developer sparring</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Hesehus Software Developer -->
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2014 - May 2018</div>
+                    <h3 class="timeline-title">Software Developer</h3>
+                    <p class="timeline-company">Hesehus A/S</p>
+                    <div class="timeline-description">
+                        <ul>
+                            <li>Backend developer on several large e-commerce sites</li>
+                            <li>Scaled solutions to handle 10x product volume</li>
+                            <li>Performed performance analysis and optimization</li>
+                            <li>Worked with ASP.NET, ASP.NET Core, Elasticsearch, and Redis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Previous Role -->
+                <div class="timeline-item">
+                    <div class="timeline-date">Prior to 2014</div>
+                    <h3 class="timeline-title">Software Developer</h3>
+                    <p class="timeline-company">Various Companies</p>
+                    <div class="timeline-description">
+                        <ul>
+                            <li>Developed insurance policy management systems</li>
+                            <li>Led development teams and established code quality standards</li>
+                            <li>Implemented branching strategies and development processes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <p class="section-subtitle">Technologies and competencies I work with</p>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ASP.NET</span>
+                        <span class="skill-tag">ASP.NET Core</span>
+                        <span class="skill-tag">Elasticsearch</span>
+                        <span class="skill-tag">Redis</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>AI & Agentic Engineering</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Agentic Engineering</span>
+                        <span class="skill-tag">Claude Code</span>
+                        <span class="skill-tag">OpenCode</span>
+                        <span class="skill-tag">GitHub Copilot</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Architecture</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Systems Architecture</span>
+                        <span class="skill-tag">Technical Roadmaps</span>
+                        <span class="skill-tag">E-commerce Platforms</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Leadership</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Team Leadership</span>
+                        <span class="skill-tag">Code Reviews</span>
+                        <span class="skill-tag">Recruitment</span>
+                        <span class="skill-tag">Stakeholder Management</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Performance Optimization</span>
+                        <span class="skill-tag">Project Estimation</span>
+                        <span class="skill-tag">Technical Problem Solving</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">Let's Connect</h2>
+                <p>
+                    I'm always open to discussing new opportunities, technical challenges, 
+                    or potential collaborations. Feel free to reach out.
+                </p>
+                <div class="contact-links">
+                    <a href="https://linkedin.com/in/andreas-kromann-87544211" target="_blank" rel="noopener noreferrer">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a href="mailto:kontakt@andreaskromann.dk">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Andreas Kromann. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
 </html>
